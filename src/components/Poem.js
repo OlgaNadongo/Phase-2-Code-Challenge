@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Poem({title ,content ,author}) {
+  const[isRead, setIsRead]=useState(false)
+
+  function handleClick(){
+    setIsRead(!isRead)
+  }
   return (
     <div>
       <h3>{title}</h3>
@@ -8,7 +13,7 @@ function Poem({title ,content ,author}) {
       <p>
         <strong>- By {author}</strong>
       </p>
-      <button>Mark as read</button>
+      <button onClick={handleClick}>{isRead? "Mark as unread":"Mark as read"}</button>
     </div>
   );
 }
